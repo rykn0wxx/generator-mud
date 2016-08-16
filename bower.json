@@ -1,0 +1,56 @@
+{
+  "name": "mudApp",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "angular": "^1.4.0",
+    "bootstrap": "^3.2.0",
+    "angular-bootstrap": "^2.0.1",
+    "angular-route": "^1.4.0",
+    "angular-animate": "^1.4.0",
+    "angular-aria": "^1.4.0",
+    "angular-resource": "^1.4.0",
+    "reveal.js": "^3.3.0",
+    "bootswatch": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "animate.css": "^3.5.2",
+    "hover": "Hover#^2.0.2",
+    "highcharts": "^4.2.6",
+    "restangular": "^1.5.2",
+    "ng-lodash": "0.5.0",
+    "d3": "^4.2.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.0"
+  },
+  "appPath": "p001",
+  "moduleName": "mudApp",
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css"
+      ]
+    },
+    "reveal.js": {
+      "main": [
+        "css/reveal.css",
+        "css/theme/league.css",
+        "js/reveal.js"
+      ]
+    },
+    "highcharts": {
+      "main": [
+        "highcharts.js",
+        "highcharts-more.js",
+        "modules/data.js",
+        "modules/exporting.js"
+      ]
+    }
+  }
+}

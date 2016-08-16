@@ -1,0 +1,112 @@
+<!doctype html>
+<html ng-app="mudApp" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<!-- build:css(.) styles/vendor.css -->
+		<!-- bower:css -->
+		<link rel="stylesheet" href="bower_components/reveal.js/css/reveal.css" />
+		<link rel="stylesheet" href="bower_components/reveal.js/css/theme/league.css" />
+		<link rel="stylesheet" href="bower_components/bootswatch/slate/bootstrap.css" />
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+		<link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+		<link rel="stylesheet" href="bower_components/hover/css/hover.css" />
+		<!-- endbower -->
+		<!-- endbuild -->
+		
+		<!-- build:css(.tmp) styles/main.css -->
+		<link rel="stylesheet" href="styles/kohana.css">
+		
+		<!-- endbuild -->
+
+	</head>
+	<body>
+
+		<!--[if lte IE 8]>
+			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+	<div class="wrapper">
+
+		<!-- Add your site or application content here -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav {{activenav}}">
+						<li class="main">
+							<a ng-href="#/"><i class="fa fa-home fa-lg"></i></a>
+						</li>
+						<li class="about">
+							<a ng-href="#/about"><i class="fa fa-slideshare fa-lg"></i></a>
+						</li>
+						<li class="testpage">
+							<a ng-href="#/testpage"><i class="fa fa-suitcase fa-lg"></i></a>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+
+
+		<div class="content-wrapper">
+			<section class="content" ng-view=""></section>
+		</div>
+	
+		<footer class="main-footer">
+			<div class="container">
+				<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+			</div>
+		</footer>
+
+	</div>
+
+		<!-- build:js(.) scripts/vendor.js -->
+		<!-- bower:js -->
+		<script src="bower_components/jquery/dist/jquery.js"></script>
+		<script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+		<script src="bower_components/angular-route/angular-route.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+		<script src="bower_components/angular-aria/angular-aria.js"></script>
+		<script src="bower_components/angular-resource/angular-resource.js"></script>
+		<script src="bower_components/headjs/dist/1.0.0/head.min.js"></script>
+		<script src="bower_components/reveal.js/js/reveal.js"></script>
+		<script src="bower_components/highcharts/highcharts.js"></script>
+		<script src="bower_components/highcharts/highcharts-more.js"></script>
+		<script src="bower_components/highcharts/modules/data.js"></script>
+		<script src="bower_components/highcharts/modules/exporting.js"></script>
+		<script src="bower_components/lodash/lodash.js"></script>
+		<script src="bower_components/restangular/dist/restangular.js"></script>
+		<script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
+		<script src="bower_components/d3/d3.js"></script>
+		<!-- endbower -->
+		<!-- endbuild -->
+
+				<!-- build:js({.tmp,p001}) scripts/scripts.js -->
+				<script src="scripts/app.js"></script>
+				<script src="scripts/services/rawcsv.js"></script>
+				<script src="scripts/directives/testdirective.js"></script>
+				<script src="scripts/controllers/main.js"></script>
+				<script src="scripts/controllers/about.js"></script>
+				<script src="scripts/controllers/testpage.js"></script>
+				<script src="scripts/controllers/dashboard.js"></script>
+				<script src="scripts/mud.js"></script>
+
+				<!-- endbuild -->
+</body>
+</html>

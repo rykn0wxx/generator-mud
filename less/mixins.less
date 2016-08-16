@@ -1,0 +1,32 @@
+// prefix declarations
+.prefixed(@property, @value) {
+  & when (@webkit = true) {
+    -webkit-@{property}: @value;
+  }
+
+  & when (@moz = true) {
+      -moz-@{property}: @value;
+  }
+
+  & when (@ms = true) {
+      -ms-@{property}: @value;
+  }
+
+  & when (@o = true) {
+      -o-@{property}: @value;
+  }
+
+  @{property}: @value;
+}
+.blurr-me(@imgpath) {
+  background-image: url(@imgpath);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: grayscale(0.3) blur(2px);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+}

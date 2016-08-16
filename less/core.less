@@ -1,0 +1,152 @@
+/*
+General layout
+*************************************/
+
+html, body {
+	min-height: 100%;
+}
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+	font-weight: 400;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background: -webkit-radial-gradient(center, circle cover, #555a5f 0%, #1c1e20 100%);
+	margin-bottom: 50px;
+	height: 100%;
+	line-height: 1;
+	position: relative;
+}
+
+
+.wrapper {
+	.clearfix();
+	max-height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.content-wrapper {
+	padding-top: 50px;
+	min-height: 100%;
+	z-index: 800;
+}
+
+.content {
+	min-height: 250px;
+	padding: 30px;
+	.container-fixed(@grid-gutter-width);
+}
+.main .main,
+.about .about,
+.testpage .testpage {
+	box-shadow: 0px -4px 0px #0097A7 inset;
+	background: rgba(34,34,34,0.5);
+	color: #fff;
+}
+.navbar {
+	background-image: none;
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+	margin: 0;
+	.navbar-nav {
+		> li {
+			> a {
+				color: rgba(255,255,255,0.6);
+				border: 0px solid rgba(0,0,0,0);
+				background-color: rgba(0,0,0,0);
+				-webkit-transition-duration: 0.4s;
+				transition-duration: 0.4s;
+				-webkit-transition-property: color, background-color;
+				transition-property: color, background-color;
+			}
+			&.active > a {
+				box-shadow: 0px -4px 0px #0097A7 inset;
+				background: rgba(34,34,34,0.5);
+				color: #fff;
+			}
+			&.active > a:hover,
+			> a:hover {
+				background-image: none;
+				background-color: rgba(68,68,68,0.5);
+				color: #c8c8c8;
+			}
+		}
+	}
+}
+
+.navbar-default {
+	.navbar-collapse {
+		margin: 0px auto;
+		justify-content: center;
+		align-items: center;
+		border-color: rgba(0,0,0,0);
+	}
+}
+
+.home-wrapper {
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+.main-footer {
+	padding: 15px;
+	color: #444;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.with-reveal {
+	.content, .content-wrapper {
+		padding: 0 !important;
+	}
+	.main-footer {
+		padding: 0 !important;
+		display: none; 
+	}
+}
+
+// Hacked Reveal
+.reveal.cube .slides section {
+	padding: 30px 60px;
+}
+
+.reveal.cube .slides section:not(.stack):before {
+	background: rgba(0, 0, 0, 0.3);
+}
+.reveal.cube .slides section:not(.stack):after {
+	box-shadow: 0px 95px 25px rgba(0, 0, 0, 0.4);
+}
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+ @reveal-arrow: rgb(170, 34, 51);
+ @reveal-arrow-hover: rgb(221, 85, 102);
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-left.enabled {
+  border-right-color:  @reveal-arrow; }
+
+.reveal .controls .navigate-right,
+.reveal .controls .navigate-right.enabled {
+  border-left-color:  @reveal-arrow; }
+
+.reveal .controls .navigate-up,
+.reveal .controls .navigate-up.enabled {
+  border-bottom-color:  @reveal-arrow; }
+
+.reveal .controls .navigate-down,
+.reveal .controls .navigate-down.enabled {
+  border-top-color:  @reveal-arrow; }
+
+
+.reveal .controls .navigate-left.enabled:hover {
+  border-right-color:   @reveal-arrow-hover; }
+.reveal .controls .navigate-right.enabled:hover {
+  border-left-color:   @reveal-arrow-hover; }
+.reveal .controls .navigate-up.enabled:hover {
+  border-bottom-color:   @reveal-arrow-hover; }
+.reveal .controls .navigate-down.enabled:hover {
+  border-top-color:   @reveal-arrow-hover; }
