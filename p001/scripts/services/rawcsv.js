@@ -109,6 +109,12 @@ angular.module('mudApp')
 .factory('DataFactory', function(lodash, $q) {
 	var d3 = window.d3;
 	var _ = lodash;
+	function nestingFunc(propName) {
+		return function(d) {
+			return d[propName];
+		};
+	}
+	
 	var getHeaders = function(csvFile) {
 		if (!csvFile) {
 			return;

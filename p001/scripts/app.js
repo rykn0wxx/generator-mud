@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngLodash',
-    'restangular'
+    'restangular',
+    'datangular'
   ]) 
 .config(['$routeProvider', 'RestangularProvider', function ($routeProvider, RestangularProvider) {
   RestangularProvider.setBaseUrl('/markynotes/');

@@ -23,7 +23,7 @@
 		<!-- endbuild -->
 
 	</head>
-	<body>
+	<body class="blur-theme">
 
 		<!--[if lte IE 8]>
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -55,6 +55,9 @@
 						</li>
 						<li class="testpage">
 							<a ng-href="#/testpage"><i class="fa fa-suitcase fa-lg"></i></a>
+						</li>
+						<li class="dashboard">
+							<a ng-href="#/dashboard"><i class="fa fa-cubes fa-lg"></i></a>
 						</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -99,6 +102,7 @@
 
 				<!-- build:js({.tmp,p001}) scripts/scripts.js -->
 				<script src="scripts/app.js"></script>
+				<script src="scripts/services/datangular.js"></script>
 				<script src="scripts/services/rawcsv.js"></script>
 				<script src="scripts/directives/testdirective.js"></script>
 				<script src="scripts/controllers/main.js"></script>
@@ -106,6 +110,7 @@
 				<script src="scripts/controllers/testpage.js"></script>
 				<script src="scripts/controllers/dashboard.js"></script>
 				<script src="scripts/mud.js"></script>
+
 
 				<!-- endbuild -->
 </body>
