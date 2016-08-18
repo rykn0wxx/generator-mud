@@ -95,6 +95,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
+					'<%= yeoman.app %>/less/{,*/}*.less',
           '<%= yeoman.app %>/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
@@ -506,12 +507,12 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      
       'wiredep',
       'less:dev',
       'concurrent:server',
       'postcss:server',
       'connect:livereload',
+			//'browserSync',
       'watch'
     ]);
   });

@@ -1,0 +1,65 @@
+/*********************************************
+ * Component: Theme Changer
+ *********************************************/
+.theme-changer{ 
+	z-index: 900; 
+	position: fixed;
+	right: -145px;
+	top: 70px;
+	transition: all 0.5s ease-in-out;
+	&.active {
+		right: 0px;
+	}
+	.theme-changer-icon {
+		background: url(../images/switcher.png) no-repeat scroll 1px 1px rgba(0,0,0, 0.5);
+		border: 1px solid rgba(0,0,0, 0.3);
+		border-right:none;
+		cursor: pointer;
+		float: left;
+		height: 35px;
+		width: 33px;
+		opacity: 0.5;
+		&:hover {
+			opacity: 1;
+			background-color: rgba(231, 76, 60, 0.5);
+		}
+	}
+	.form-holder {
+		background: rgba(0,0,0,0.5);
+		float: right;
+		border: 1px solid rgba(0,0,0, 0.3);
+		width: 140px;
+		p {
+			color:#7F7F7F;
+			padding:0 20px;
+			font-size: 11px;
+		}
+		.theme-style {
+			padding: 1px;
+			.styleswitch {
+				cursor: pointer;
+				padding: 3px 1px;
+				float:left
+			}
+		}
+	}
+}
+
+.theme-style:before, .theme-style:after {
+	content: ' ';
+	display: table;
+}
+.theme-style:after {
+	clear: both;
+}
+
+//.styleswitch{padding-top: 3px; float:left; margin-right: 3px;}
+
+@media only screen and (max-width: 768px) {
+.demo_changer{
+    display: none;
+}
+} 
+
+
+

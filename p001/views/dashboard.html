@@ -1,13 +1,54 @@
-<div class="row animated slideInLeft">
-	<div class="col-md-2">
-		<div class="panel panel-default">
-			<div class="panel-heading">Available Measures</div>
-			<div class="panel-body">
-				<ul class="list-group">
-					<li class="list-group-item" ng-repeat="item in dataHead.measures">
-						{{item}}
-					</li>
-				</ul>
+<div class="row">
+	<div class="box-package animated">
+		<div class="col-md-8">
+			<div class="panel blurry">
+				<div class="panel-heading bg-light-blue">
+					<h3 class="box-title">Chart Viewer</h3>
+					<div class="controls">
+						<button type="button" class="btn btn-controls hvr-glow" data-widget="collapse"><i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-controls hvr-glow" data-widget="controls"><i class="fa fa-gears"></i></button>
+					</div>
+				</div>
+				<div class="panel-body">
+					aa
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel box-ctrl blurry">
+				<div class="bg-aqua panel-heading">
+					Available Measures
+					<div class="controls">
+						<button type="button" class="btn btn-controls hvr-glow" data-widget="collapse"><i class="fa fa-minus"></i></button>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="form-horizontal">
+						<div class="form-group">
+							<div class="col-lg-6">
+								<select class="form-control input-sm" ng-model="mc.measure[$index].name" ng-options="t.id as t.title for t in measures"></select>
+							</div>
+							<div class="col-lg-6">
+								<select class="form-control input-sm" ng-model="mc.measure[$index].operation" ng-options="t.id as t.title for t in operations"></select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel box-ctrl">
+				<div class="bg-aqua panel-heading">
+					Available Dimensions
+					<div class="controls">
+						<button type="button" class="btn btn-controls hvr-glow" data-widget="collapse"><i class="fa fa-minus"></i></button>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-group">
+						<li class="list-group-item" ng-repeat="item in datafields.dimensions">
+							{{item}}
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

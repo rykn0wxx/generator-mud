@@ -9,19 +9,19 @@
  * Main module of the application.
  */
 angular
-  .module('mudApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngResource',
-    'ngRoute',
-    'ngLodash',
-    'restangular',
-    'datangular'
-  ]) 
+.module('mudApp', [
+	'ngAnimate',
+	'ngAria',
+	'ngResource',
+	'ngRoute',
+	'ngLodash',
+	'restangular',
+	'datangular'
+]) 
 .config(['$routeProvider', 'RestangularProvider', function ($routeProvider, RestangularProvider) {
   RestangularProvider.setBaseUrl('/markynotes/');
   $routeProvider
-    .when('/', {
+    .when('/main', {
       templateUrl: 'views/main.html',
       controller: 'MainCtrl',
       controllerAs: 'main'
@@ -39,57 +39,40 @@ angular
     .when('/dashboard', {
       templateUrl: 'views/dashboard.html',
       controller: 'DashboardCtrl',
-      controllerAs: 'dashboard'
+      controllerAs: 'dashboard',
+			resolve: {
+				store: function(Datangular) {
+					return Datangular.initialize('markynotes/mainQuery.csv').then(function(d){
+						return d;
+					});
+				}
+			}
+    })
+    .when('/dashboard/dash2', {
+      templateUrl: 'views/dash2.html',
+      controller: 'Dash2Ctrl',
+      controllerAs: 'dash2'
+    })
+    .when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'LoginCtrl',
+      controllerAs: 'login'
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '/login'
     });
-
-  RestangularProvider.setResponseInterceptor(function(data, operation, what) {
-    function csvToJson(csv, separator, header) {
-      if (!csv) {
-        return;
-      }
-
-      separator = separator || ',';
-      header = header || true;
-
-      var result = [];
-      var headers = [];
-      var start = 0;
-
-      var lines = csv.split('\n');
-      var columnCount = lines[0].split(separator).length;
-      if (header) {
-        headers = lines[0].split(separator);
-        start = 1;
-      }
-
-      for (var i = start; i < lines.length; i++) {
-        var obj = {};
-        var currentline = lines[i].split(new RegExp(separator + '(?![^"]*"(?:(?:[^"]*"){2})*[^"]*$)'));
-        if (currentline.length === columnCount) {
-          if (header)  {
-            for (var j = 0; j < headers.length; j++) {
-              obj[headers[j]] = currentline[j];
-            }
-            obj.id = i;
-          } else {
-            for (var k = 0; k < currentline.length; k++) {
-              obj[k] = currentline[k];
-            }
-          }
-          result.push(obj);
-        }
-      }
-
-      return JSON.stringify(result);
-    }
-    if (operation === 'get') {
-      return csvToJson(data, ',', true);
-    }
-    return data;
-  });
+}])
+.directive('a', [function() {
+	return ({
+		restrict: 'E',
+		link: function postLink(scope, elem, attrs) {
+			if (attrs.href === '' || attrs.href === '#') {
+				elem.on('click', function(ev) {
+					ev.preventDefault();
+				});
+			}
+		}
+	});
 }])
 .directive('uiToolTip', [function () {
   return {

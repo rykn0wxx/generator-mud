@@ -1,0 +1,43 @@
+/*********************************************
+ * Hacked: Form Styles
+ *********************************************/
+
+.form-horizontal {
+	.control-label {
+		text-align: right;
+		padding: 9px 5px 0 15px;
+	}
+}
+ 
+.form-control {
+	font-size: 14px;
+	padding: 0 15px;
+}
+
+.panel {
+	.form-group {
+		margin-bottom: 0;
+	}
+}
+
+/*********************************************
+ * Hacked: Blurred Theme Panel
+ *********************************************/
+
+.panel { 
+	&.blurry {
+		background-image: url('../images/bg-blur.jpg'), url('../images/blur1.png');
+		background-repeat: no-repeat, no-repeat;
+		background-position: 0px -300px, 0px 50px;
+		background-size: 1593px 896px, 100% 100%;
+		transition: none;
+		box-shadow: 0 5px 5px 0 rgba(0,0,0,.25);
+	}
+	&::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+	}
+	&::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.7);
+	}
+}

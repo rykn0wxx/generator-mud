@@ -10,7 +10,7 @@
 angular.module('datangular', ['ngLodash'])
 .provider('Datangular', ['lodash', function (_) {
 	var d3 = window.d3;
-	var __this = this;
+	
   // Private variables
   var Configurer = {};
   Configurer.init = function(object, config) {
@@ -52,20 +52,19 @@ angular.module('datangular', ['ngLodash'])
 	Configurer.init(this, globalConfiguration);
 
   // Method for instantiating
-  __this.$get = ['$http', '$q', function($http, $q) {
+  this.$get = ['$http', '$q', function($http, $q) {
 
   	function createServiceForConfiguration(config) {
   		var service = {};
 
   		var theBase = new config.uCreateFactory();
-  		console.log(theBase);
+  		
   		function fetchData(fileName) {
   			if (!fileName) {
   				return;
   			}
   			var deferred = $q.defer();
   			d3.csv(fileName, function(err, data) {
-  				theBase.dataset.setRaw(data);
   				deferred.resolve(data);
   			});
   			return deferred.promise;
@@ -75,25 +74,28 @@ angular.module('datangular', ['ngLodash'])
 				var results = {measures : [], dimensions : []};
   			_.forEach(arg, function(v, k) {
 					if(_.startsWith(k, 'm-')) {
-						results.measures.push(k);
+						results.measures.push({'id': k, 'title': _.replace(k,'m-','')});
 					} else {
 						results.dimensions.push(k);
 					}
   			});
-  			theBase.dataset.setMeasures(results.measures);
-  			theBase.dataset.setDimensions(results.dimensions);
+				return results;
   		}
 
   		function initialize(filePath) {
-  			
+  			var me = this;
   			if (!filePath) {
   				return;
   			}
   			var deferred = $q.defer();
 
-	  			fetchData(filePath).then(function(d) {
-	  				getHeaders(d[0]);
-	  			});
+				fetchData(filePath).then(function(d) {
+					var dFields = getHeaders(d[0]);
+					theBase.dataset.setRaw(d);
+					theBase.dataset.setMeasures(dFields.measures);
+					theBase.dataset.setDimensions(dFields.dimensions);
+					deferred.resolve(me.configuration.datafields);
+				});
 
   			return deferred.promise;
   		}

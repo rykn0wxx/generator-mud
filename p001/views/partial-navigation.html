@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav {{activenav}}">
+				<li class="main">
+					<a ng-href="#/"><i class="fa fa-home fa-lg"></i></a>
+				</li>
+				<li class="about">
+					<a ng-href="#/about"><i class="fa fa-slideshare fa-lg"></i></a>
+				</li>
+				<li class="testpage">
+					<a ng-href="#/testpage"><i class="fa fa-suitcase fa-lg"></i></a>
+				</li>
+				<li class="dashboard dropdown">
+					<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-cubes fa-lg"></i></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a ng-href="#/dashboard"><i class="fa fa-rocket fa-lg"></i></a></li>
+						<li><a ng-href="#/dashboard/dash2"><i class="fa fa-plane fa-lg"></i></a></li>
+					</ul>
+				</li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<div theme-changer></div>

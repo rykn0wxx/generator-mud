@@ -103,8 +103,6 @@ angular.module('mudApp')
     return createServiceForConfigs(globalConfiguration);
   }];
 
-	console.log(this);
-
 }])
 .factory('DataFactory', function(lodash, $q) {
 	var d3 = window.d3;

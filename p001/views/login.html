@@ -1,0 +1,22 @@
+<div class="row welcome" ng-controller="LoginCtrl as login">
+	<div class="users animated fadeInRightBig">
+		<div class="avatars">
+			<a ng-click="loggedIn()" ng-href="{{a.ref}}" data-username="{{a.name}}" style="background-image: url('{{a.image}}')" class="avatar hvr-grow" ng-repeat="a in avatarz"></a>
+		</div>
+	</div>
+</div>
+<div class="overlays">
+	<div class="notifications">
+		<div class="notification animated fadeInLeftMiddle fast">
+			<div class="left">
+				<div style="background-image: url('../images/avatars/a.png')" class="img border"></div>
+			</div>
+			<div class="right">
+				<div class="inner">
+					<h2>Welcome to the Dashboard</h2>Please pick a user!
+				</div>
+			</div>
+			<div class="hide" style="display: none;"></div>
+		</div>
+	</div>
+</div>

@@ -17,7 +17,8 @@ window.$.mud.options = {
       open: 'fa-plus'
     },
     boxWidgetSelectors: {
-      collapse: '[data-widget="collapse"]'
+      collapse: '[data-widget="collapse"]',
+			controls: '[data-widget="controls"]'
     }
   },
   screenSizes: {
@@ -42,11 +43,74 @@ function _init(m, $) {
 		fix: function () {
 			if ($('.reveal').length === 0) {
 				var windowHeight = $(window).height();
-				$('.content').css('min-height', windowHeight - $('.main-footer').outerHeight());
+				$('.content-wrapper').css('min-height', windowHeight - $('.main-footer').outerHeight());
 			}
 			//$('.reveal').css('height',windowHeight);
 		}
 	};
+	
+	m.boxWidget = {
+    selectors: m.options.boxWidgetOptions.boxWidgetSelectors,
+    icons: m.options.boxWidgetOptions.boxWidgetIcons,
+    animationSpeed: m.options.animationSpeed,
+    activate: function (_box) {
+      var _this = this;
+      if (!_box) {
+        _box = document; // activate all boxes per default
+      }
+      //Listen for collapse event triggers
+      $(_box).on('click', _this.selectors.collapse, function (e) {
+        e.preventDefault();
+        _this.collapse($(this));
+      });
+      //Listen for controls event triggers
+      $(_box).on('click', _this.selectors.controls, function (e) {
+        e.preventDefault();
+        _this.controls($(this));
+      });
+    },
+		controls: function(element) {
+			var _this = this;
+      //Find the box parent
+      var box = element.parents('.box-package').first();
+			var nxtBox = box.children().eq(0);
+			//Find the control boxes
+      var box_content = box.children().eq(1);
+			box.toggleClass('ctrls')
+				.fadeToggle('slow', function() {
+					box_content.toggleClass('hidden');
+					nxtBox.toggleClass('col-md-12 col-md-8');
+				});
+			box.fadeToggle('normal');
+			
+		},
+    collapse: function (element) {
+      var _this = this;
+      //Find the box parent
+      var box = element.parents('.panel').first();
+      //Find the body and the footer
+      var box_content = box.find('> .panel-body, > .panel-footer, > form  >.panel-body, > form > .panel-footer');
+      if (!box.hasClass('collapsed-box')) {
+        //Convert minus into plus
+        element.children(':first')
+            .removeClass(_this.icons.collapse)
+            .addClass(_this.icons.open);
+        //Hide the content
+        box_content.slideUp(_this.animationSpeed, function () {
+          box.addClass('collapsed-box');
+        });
+      } else {
+        //Convert plus into minus
+        element.children(':first')
+            .removeClass(_this.icons.open)
+            .addClass(_this.icons.collapse);
+        //Show the content
+        box_content.slideDown(_this.animationSpeed, function () {
+          box.removeClass('collapsed-box');
+        });
+      }
+    }
+  };
 
 	m.demo = {
 		slidecharts: function () {
@@ -135,4 +199,8 @@ function _init(m, $) {
 	var m = $.mud;
 	_init(m, $);
 	m.layout.activate();
+	//Activate box widget
+  if (m.options.enableBoxWidget) {
+    m.boxWidget.activate();
+  }
 }(window.jQuery));

@@ -1,7 +1,7 @@
 /*
 General layout
 *************************************/
-
+ 
 html, body {
 	min-height: 100%;
 }
@@ -18,13 +18,33 @@ body {
 	line-height: 1;
 	position: relative;
 }
-
+@imgbg: #54364a;
 body {
-	color: rgb(102, 102, 102);
-	background-color: rgb(240, 243, 244);
-	font: 14px/16px Roboto, sans-serif;
-	min-height: 100%;
-	min-width: 320px;
+	&.a-theme {
+		background-color: @imgbg;
+		background-size: cover;
+		background-image: url('../images/a.jpg');
+	}
+	&.b-theme {
+		background-color: @imgbg;
+		background-size: cover;
+		background-image: url('../images/b.jpg');
+	}
+	&.c-theme {
+		background-color: @imgbg;
+		background-size: cover;
+		background-image: url('../images/c.jpg');
+	}
+	&.d-theme {
+		background-color: @imgbg;
+		background-size: cover;
+		background-image: url('../images/d.jpg');
+	}
+	&.e-theme {
+		background-color: @imgbg;
+		background-size: cover;
+		background-image: url('../images/e.jpg');
+	}
 	&.blur-theme::before {
 		content: "";
 		position: fixed;
@@ -37,16 +57,43 @@ body {
 		background-image: url('../images/bbgg.jpg');
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
-		opacity: 0.3;
+		opacity: 0.4;
 	}
 }
-
 
 .wrapper {
 	.clearfix();
 	max-height: 100%;
 	position: relative;
 	overflow: hidden;
+}
+
+.ng-enter {
+	> .row {
+		display: none;
+	}
+}
+.row {
+	.animate-me(activate, 1s);
+}
+.ng-leave {
+	> .row {
+		.animate-me(remove, 1s);
+	}
+}
+
+
+.row-fluid {
+	width: 100%;
+	*zoom: 1;
+	&:before, &:after {
+		display: table;
+		content: "";
+		line-height: 0;
+	}
+	&:after {
+		clear: both;
+	}
 }
 
 .content-wrapper {
@@ -59,7 +106,9 @@ body {
 	min-height: 250px;
 	padding: 30px;
 	.container-fixed(@grid-gutter-width);
+	transition: all 0.5s ease-in-out;
 }
+
 .main .main,
 .about .about,
 .testpage .testpage,
@@ -68,6 +117,7 @@ body {
 	background: rgba(34,34,34,0.5);
 	color: #fff;
 }
+
 .navbar {
 	background-image: none;
 	background-color: rgba(0,0,0,0);
@@ -116,9 +166,10 @@ body {
 .main-footer {
 	padding: 15px;
 	color: #444;
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	width: 100%;
+	transition: all 0.5s ease-in-out;
 }
 
 .with-reveal {
