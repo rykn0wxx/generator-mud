@@ -19,18 +19,18 @@ angular.module('mudApp')
 	
 	$scope.reclass = function() {
 		angular.element('body').attr('class', 'welcome-page');
-	}();
+	};
 	
 	$scope.loggedIn = function() {
 		$t(function() {
 			var glbl = $rS.$$ChildScope;
 			angular.element('body').attr('class', 'a-theme');
 			$scope.$apply(function() {
+				$rS.$$childHead.glb.login = true;
 				$rS.$$childHead.login = true;
 			});	
 		},1);
-		
-		
 	};
 	
+	$scope.reclass();
 }]);

@@ -9,7 +9,9 @@
  */
 angular.module('mudApp')
 .controller('GlobalctrlCtrl', ['$scope', function ($scope) {
-	
+	var me = this;
+
+	me.login = false;
 	$scope.login = false;
 
 }]);

@@ -1,3 +1,13 @@
+.cfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
 /*
 General layout
 *************************************/
@@ -62,7 +72,7 @@ body {
 }
 
 .wrapper {
-	.clearfix();
+	.cfix();
 	max-height: 100%;
 	position: relative;
 	overflow: hidden;

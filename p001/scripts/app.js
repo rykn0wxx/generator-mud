@@ -54,12 +54,11 @@ angular
       controllerAs: 'dash2'
     })
     .when('/login', {
-      templateUrl: 'views/login.html',
       controller: 'LoginCtrl',
       controllerAs: 'login'
     })
     .otherwise({
-      redirectTo: '/login'
+      redirectTo: '/main'
     });
 }])
 .directive('a', [function() {

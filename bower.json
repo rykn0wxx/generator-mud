@@ -1,4 +1,4 @@
-{
+{ 
   "name": "mudApp",
   "version": "0.0.0",
   "dependencies": {
@@ -53,5 +53,8 @@
         "modules/exporting.js"
       ]
     }
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
